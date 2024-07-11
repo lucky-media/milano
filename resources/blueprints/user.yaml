@@ -1,0 +1,59 @@
+title: User
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: first_name
+        field:
+          type: text
+          input_type: text
+          display: 'First Name'
+          instructions_position: above
+          listable: hidden
+          read_only: false
+          placeholder: 'First Name *'
+          antlers: false
+          validate:
+            - required
+      -
+        handle: last_name
+        field:
+          type: text
+          input_type: text
+          display: 'Last Name'
+          instructions_position: above
+          listable: hidden
+          read_only: false
+          placeholder: 'Last Name *'
+          antlers: false
+          validate:
+            - required
+      -
+        handle: email
+        field:
+          type: text
+          input_type: email
+          input: email
+          display: 'Email Address'
+          instructions_position: above
+          listable: hidden
+          read_only: false
+          placeholder: 'Email address *'
+          antlers: false
+          validate:
+            - required
+      -
+        handle: roles
+        field:
+          type: user_roles
+          width: 50
+          instructions_position: above
+          listable: hidden
+          read_only: false
+          mode: default
+      -
+        handle: groups
+        field:
+          type: user_groups
+          width: 50

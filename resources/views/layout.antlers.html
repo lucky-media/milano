@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ partial:partials/favicons }}
+    {{ partial:seo }}
+    <script>
+        window.csrfToken = '{{ csrf_token }}';
+    </script>
+
+    {{ livewire:styles }}
+    {{ vite src="resources/js/site.js|resources/css/tailwind.css" }}
+</head>
+
+<body
+    class="flex flex-col justify-between min-h-screen font-sans antialiased relative {{ environment === 'local' ?= 'debug-screens' }}">
+    {{ partial:layout/alert }}
+    {{ livewire:scriptConfig }}
+    {{ partial:layout/navigation }}
+    {{ template_content }}
+    {{ partial:layout/footer }}
+</body>
+
+</html>

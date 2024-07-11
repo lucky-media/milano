@@ -1,0 +1,15 @@
+title: 'Product List'
+fields:
+  -
+    handle: per_page
+    field:
+      options:
+        9: '9'
+        18: '18'
+        27: '27'
+      default: '9'
+      type: button_group
+      display: 'Per Page'
+      instructions: 'How many products to display per page.'
+      validate:
+        - required

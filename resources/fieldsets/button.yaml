@@ -1,0 +1,47 @@
+title: Button
+fields:
+  -
+    handle: has_button
+    field:
+      default: false
+      display: 'Has Button'
+      type: toggle
+      icon: toggle
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: button_title
+    field:
+      input_type: text
+      antlers: false
+      display: 'Button Title'
+      type: text
+      icon: text
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      validate:
+        - required
+        - sometimes
+      if:
+        has_button: 'equals true'
+  -
+    handle: link
+    field:
+      display: Link
+      type: link
+      icon: link
+      width: 66
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      validate:
+        - required
+        - sometimes
+      if:
+        has_button: 'equals true'

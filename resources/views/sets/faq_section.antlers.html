@@ -1,0 +1,28 @@
+<div class="container py-10 md:py-20">
+    <div class="flex flex-col space-y-8 md:space-y-16 max-w-4xl mx-auto">
+        <div class="space-y-4 {{ align_center ?= 'text-center' }}">
+            <x-heading size="h4">{{ title }}</x-heading>
+            {{ if rich_text }}
+                <div class="space-y-4">
+                    {{ partial:sets/rich_text }}
+                </div>
+            {{ /if }}
+        </div>
+        {{ if faq_items }}
+            <div>
+                {{ faq_items }}
+                    <x-dropdown class="border-b-2 border-primary-400">
+                        <x-dropdown.trigger class="flex text-left justify-between w-full py-8">
+                            <x-paragraph class="uppercase" size="xl">
+                                {{ title }}
+                            </x-paragraph>
+                        </x-dropdown.trigger>
+                        <x-dropdown.content>
+                            {{ partial:sets/rich_text class="pb-8 mr-7" }}
+                        </x-dropdown.content>
+                    </x-dropdown>
+                {{ /faq_items }}
+            </div>
+        {{ /if }}
+    </div>
+</div>

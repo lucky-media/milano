@@ -1,0 +1,23 @@
+title: 'Hero Section'
+fields:
+  -
+    handle: image
+    field:
+      container: assets
+      max_files: 1
+      display: Image
+      type: assets
+      always_save: false
+      validate:
+        - required
+  -
+    handle: title
+    field:
+      display: Title
+      type: text
+      validate:
+        - required
+  -
+    import: section_description
+  -
+    import: button

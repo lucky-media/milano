@@ -1,0 +1,8 @@
+<select wire:model.change="sort" aria-label="sort"
+    class="uppercase border-t-0 border-b border-x-0 border-primary-950 text-primary-950 font-medium">
+    <option value="order:asc">{{ 'Default' }}</option>
+    <option value="price:asc">{{ 'Low to High' }}</option>
+    <option value="price:desc">{{ 'High to Low' }}</option>
+    <option value="date:desc">{{ 'sort by: Latest' }}</option>
+    <option value="date:asc">{{ 'sort by: Oldest' }}</option>
+</select>

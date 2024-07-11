@@ -1,0 +1,27 @@
+<div class="container py-20">
+    {{ if title or rich_text }}
+        <div class="flex flex-col items-center justify-center mb-9 md:mb-16 text-center">
+            {{ if title }}
+                <x-heading size="h3">{{ title }}</x-heading>
+            {{ /if }}
+            {{ if rich_text }}
+                {{ partial:sets/rich_text class="mt-4 md:mt-6 prose-p:text-lg" }}
+            {{ /if }}
+        </div>
+    {{ /if }}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 md:gap-7 gap-6">
+        {{ category }}
+            <div class="flex flex-col items-center">
+                <div class="w-full h-[420px] overflow-hidden mb-6">
+                    {{ partial:components/picture cover="true" }}
+                </div>
+
+                <x-heading size="h6" class="mb-4 text-center">{{ title }}</x-heading>
+                <x-button url="/products?categories[0]={{ id }}" variant="underline" class="w-max" size="sm"
+                    icon="true">
+                    {{ 'Shop Collection' | trans }}
+                </x-button>
+            </div>
+        {{ /category }}
+    </div>
+</div>

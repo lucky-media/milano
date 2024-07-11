@@ -1,0 +1,240 @@
+{{ nocache }}
+    {{ if {sc:cart:count} === 0 }}
+        {{ redirect to="/" }}
+    {{ /if }}
+{{ /nocache }}
+
+<script>
+    console.log("Simple Commerce Cart ID: {{ sc:cart:id }}")
+</script>
+
+<div class="container py-16 md:py-24">
+    <div class="grid md:grid-cols-2">
+        {{# Hidden on mobile #}}
+        <div class="overflow-y-auto md:px-8 lg:px-16 md:block">
+            <a href="/cart" aria-label="Go to cart" class="inline-flex items-center mb-8">
+                {{ svg src="arrow-left" class="w-6 h-6 mr-3 text-black fill-current shrink-0" }}
+                <x-paragraph as="span" size="lg" weight="semibold">
+                    {{ 'Cart' | trans }}
+                </x-paragraph>
+            </a>
+
+            {{ nocache }}
+                {{ sc:cart }}
+                    <x-paragraph weight="medium" class="mb-2">
+                        {{ 'To Pay' | trans }}
+                    </x-paragraph>
+                    <x-heading size="h5" class="mb-10 font-semibold">{{ grand_total }}</x-heading>
+                    {{# Items in cart list #}}
+                    {{ items }}
+                        {{ partial:partials/cart_items_list }}
+                    {{ /items }}
+
+                    <div class="mt-8">
+                        <div class="flex items-center justify-between py-5">
+                            <x-paragraph weight="medium">
+                                {{ 'Subtotal' | trans }}
+                            </x-paragraph>
+                            <x-paragraph weight="medium">
+                                {{ items_total }}
+                            </x-paragraph>
+                        </div>
+
+                        <div class="flex items-start justify-between py-5 border-t">
+                            <div class="flex flex-col flex-auto">
+                                <x-paragraph color="light" weight="medium">
+                                    {{ 'Shipping' | trans }}
+                                </x-paragraph>
+                                <x-paragraph color="light" weight="medium">
+                                    {{ 'Free shipping' | trans }}
+                                </x-paragraph>
+                            </div>
+
+                            <x-paragraph weight="medium" class="text-right ml-2">
+                                {{ shipping_total }}
+                            </x-paragraph>
+                        </div>
+
+                        <div class="flex items-center justify-between border-t py-5">
+                            <x-paragraph weight="medium">
+                                {{ 'Grand Total' | trans }}
+                            </x-paragraph>
+                            <x-paragraph weight="medium">
+                                {{ grand_total }}
+                            </x-paragraph>
+                        </div>
+                    </div>
+                {{ /sc:cart }}
+            {{ /nocache }}
+
+            <div class="hidden md:flex md:items-center mt-24 text-primary-950">
+                {{ if theme:checkout_disclaimer_text }}
+                    {{ partial:sets/rich_text :rich_text="theme:checkout_disclaimer_text" class="prose-p:font-bold prose-p:text-sm prose-p:text-primary-700 prose-a:text-gray-950 [&>p]:prose-a:text-gray-950 prose-a:font-bold prose-a:text-base" }}
+                {{ /if }}
+            </div>
+        </div>
+
+        <div class="overflow-y-auto md:px-8 lg:px-16">
+            <div class="max-w-lg mx-auto">
+                {{# Errors #}}
+                {{ nocache }}
+                    {{ if {sc:hasErrors} === true }}
+                        <div class="p-4 mb-6 bg-red-100 rounded-md">
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-red-800">
+                                    {{ 'There were some issues checking out. Please review and try again.' | trans }}
+                                </h3>
+
+                                <div class="mt-2 text-sm text-red-700">
+                                    <ul class="pl-5 space-y-1 list-disc">
+                                        {{ sc:errors }}
+                                            <li>
+                                                {{ value }}
+                                            </li>
+                                        {{ /sc:errors }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {{ /if }}
+                {{ /nocache }}
+
+                {{# Payment Form #}}
+                <div class="mt-12 md:mt-0 p-6 bg-neutral-100">
+                    {{ nocache }}
+                        {{ sc:checkout redirect="/checkout/thanks" id="checkout-form" }}
+                            <div x-data="shipping" class="grid grid-cols-12 gap-4 mb-8">
+                                <div class="col-span-full space-y-4">
+                                    {{ partial:components/label handle="name" label="{'Full Name' | trans}" required="true" }}
+                                    {{ partial:vendor/statamic/forms/fields/text handle="name" :validate="['required']" }}
+                                </div>
+                                <div class="space-y-4 col-span-full">
+                                    {{ partial:components/label handle="email" label="{'Email Address' | trans}" required="true" }}
+                                    {{ partial:vendor/statamic/forms/fields/text handle="email" label="{'Email Address' | trans}" :validate="['required']" input_type="email" }}
+                                </div>
+
+
+                                <div class="space-y-4 col-span-full">
+                                    {{ partial:components/label handle="name-on-card" label="{'Name on card' | trans}" required="true" }}
+                                    {{ partial:vendor/statamic/forms/fields/text handle="name-on-card" :validate="['required']" label="{'Name on card' | trans}" }}
+                                </div>
+
+                                <div class="space-y-4 col-span-full">
+                                    {{ partial:components/label label="{'Card Information' | trans}" id="card-number" required="true" }}
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="col-span-2">
+                                            <div id="card-number">
+                                            </div>
+                                        </div>
+
+                                        <div id="card-expiry">
+                                        </div>
+
+                                        <div id="card-cvc">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-span-full mt-4 space-y-4">
+                                    {{ partial:components/label label="Shipping Information" }}
+                                    {{ partial:vendor/statamic/forms/fields/text handle="shipping_address" placeholder="{'Address' | trans}" required="true" }}
+                                    {{ partial:vendor/statamic/forms/fields/text handle="shipping_address_line2" placeholder="{'Address 2' | trans}" required="true" }}
+                                    <x-select handle="shipping_country" x-model="shippingCountry" required="true">
+                                        {{ sc:countries common="US|GB|CA|DE" }}
+                                            <option value="{{ iso }}">{{ name }}</option>
+                                        {{ /sc:countries }}
+                                    </x-select>
+
+                                    <x-select id="shipping_region" name="shipping_region">
+                                        <template x-for="region in shippingRegionOptions">
+                                            <option :value="region.id" x-text="region.name"></option>
+                                        </template>
+                                    </x-select>
+
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        {{ partial:vendor/statamic/forms/fields/text handle="shipping_city" placeholder="{'City' | trans}" required="true" }}
+                                        {{ partial:vendor/statamic/forms/fields/text handle="shipping_postal_code" placeholder="{'ZIP' | trans}" required="true" }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <x-button id="checkout-button" class="w-full" type="submit">
+                                {{ 'Pay' | trans }}
+                                {{ sc:cart:grand_total }}
+                            </x-button>
+
+                            <input type="hidden" name="use_shipping_address_for_billing" value="true">
+                            <input type="hidden" name="shipping_name" placeholder="Name" value="Default">
+                            {{ sc:gateways:stripe }}
+                                <input type="hidden" name="gateway" value="{{ handle }}">
+                            {{ /sc:gateways:stripe }}
+                            <input id="stripePaymentMethod" type="hidden" name="payment_method">
+
+                            <script src="https://js.stripe.com/v3/"></script>
+                            <script>
+                                let stripe = Stripe('{{ stripe:config:key }}')
+                                let elements = stripe.elements()
+                                let submitButton = document.getElementById('checkout-button')
+
+                                const card = elements.create('cardNumber')
+                                card.mount('#card-number', {
+                                    placeholder: '',
+                                })
+
+                                const cardExpiry = elements.create('cardExpiry')
+                                cardExpiry.mount('#card-expiry', {
+                                    placeholder: '',
+                                })
+
+                                const cardCvc = elements.create('cardCvc')
+                                cardCvc.mount('#card-cvc', {
+                                    placeholder: '',
+                                })
+
+                                async function confirmPayment() {
+                                    submitButton.classList.add('opacity-30');
+                                    submitButton.setAttribute('disabled', '');
+
+                                    await stripe.confirmCardPayment('{{ stripe:client_secret }}', {
+                                        payment_method: {
+                                            card: card,
+                                            billing_details: {
+                                                name: document.getElementById('name-on-card').value,
+                                            },
+                                        },
+                                    }).then(function(result) {
+                                        if (result.paymentIntent?.status === 'succeeded') {
+                                            document.getElementById('stripePaymentMethod').value =
+                                                result
+                                                .paymentIntent.payment_method
+                                            document.getElementById('checkout-form').submit()
+                                        } else if (result.error) {
+                                            window.alert("There was an issue processing your payment: " +
+                                                result.error.message)
+
+                                            submitButton.classList.remove('opacity-30');
+                                            submitButton.removeAttribute('disabled');
+                                        }
+                                    }).catch((error) => {
+                                        submitButton.classList.remove('opacity-30');
+                                        submitButton.removeAttribute('disabled');
+
+                                        console.log(error)
+                                    })
+                                }
+                                document.getElementById('checkout-form').addEventListener('submit', (e) => {
+                                    e.preventDefault()
+                                    confirmPayment()
+                                })
+                            </script>
+                        {{ /sc:checkout }}
+                    {{ /nocache }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.regions = {{ json_regions }};
+</script>

@@ -1,0 +1,10 @@
+{{ livewire:product_search :isMobile="isMobile" }}
+{{ nocache }}
+    <a href="/cart" aria-label="Go to cart" class="{{ isMobile ?= 'mt-px flex items-center justify-center' }}">
+        {{ if {sc:cart:count} === 0 }}
+            {{ svg src="shopping-cart" class="w-5 h-5 fill-current text-primary-950 shrink-0" }}
+        {{ else }}
+            {{ svg src="shopping-cart-full" class="fill-current w-[30px] h-[30px] text-primary-950 shrink-0" }}
+        {{ /if }}
+    </a>
+{{ /nocache }}

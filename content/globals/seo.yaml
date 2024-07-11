@@ -1,0 +1,11 @@
+title: SEO
+data:
+  sitename: MILANO
+  append_on_title: MILANO
+  meta_description: 'This is a meta description'
+  display_og_tags: true
+  og_description: 'This is a meta description'
+  og_image: logo_black.svg
+  display_twitter_tags: true
+  sitemap_change_frequency: weekly
+  sitemap_priority: 0.5

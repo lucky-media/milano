@@ -1,0 +1,42 @@
+<div class="flex flex-col-reverse lg:flex-row lg:w-2/3">
+    {{ if product_images }}
+        <div id="thumbnail-carousel" class="mt-4 lg:mt-0 splide lg:mx-4 lg:divide-y lg:divide-primary-200">
+            <div class="splide__track lg:mb-6">
+                <div class="flex flex-row splide__list lg:flex-col">
+                    {{ product_images }}
+                        <div class="splide__slide">
+                            <div class="w-20 h-20 md:w-auto">
+                                {{ partial:components/picture :image="url" cover="true" }}
+                            </div>
+                        </div>
+                    {{ /product_images }}
+                </div>
+            </div>
+
+            <div class="flex-col items-center hidden splide__arrows lg:flex lg:pt-6 lg:space-y-3">
+                <button class="p-3 border splide__arrow--prev">
+                    {{ svg src="arrow-down" class="w-8 h-auto rotate-180 fill-current text-primary-950 shrink-0" }}
+                </button>
+                <button class="p-3 border splide__arrow--next">
+                    {{ svg src="arrow-down" class="w-8 h-auto fill-current text-primary-950 shrink-0" }}
+                </button>
+            </div>
+        </div>
+    {{ /if }}
+    <div id="main-carousel" x-ignore ax-load="visible" x-data="slider('main-carousel')" class="splide"
+        aria-label="Products Images">
+        <div class="splide__track">
+            <div class="splide__list">
+                {{ product_images }}
+                    <div class="splide__slide w-full max-h-[640px]">
+                        {{ partial:components/picture :image="url" cover="true" }}
+                    </div>
+                {{ /product_images }}
+            </div>
+        </div>
+
+        <div class="hidden lg:block">
+            {{ partial:partials/product_details/product_content }}
+        </div>
+    </div>
+</div>

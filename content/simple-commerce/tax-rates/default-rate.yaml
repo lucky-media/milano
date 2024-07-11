@@ -1,0 +1,6 @@
+id: default-rate
+name: Default
+rate: 0
+category: default
+zone: everywhere
+include_in_price: false

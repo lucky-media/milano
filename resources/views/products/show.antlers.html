@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="py-12 space-y-8 lg:flex lg:space-x-8 lg:space-y-0 lg:py-16">
+        {{# Splide #}}
+        {{ partial:partials/product_details/product_images }}
+        <div class="space-y-10 pt-4 lg:pt-0 lg:w-1/3">
+            {{ partial:partials/product_details/product_about }}
+            <div x-data="{ quantity: 1 }">
+                {{ nocache }}
+                    {{ sc:cart:addItem }}
+                        <div class="flex items-center justify-between">
+                            <x-heading size="h4">{{ price }}</x-heading>
+                            {{ if !{sc:cart:alreadyExists :product="id"} }}
+                                <div class="flex items-center">
+                                    <x-paragraph size="lg" color="light" class="uppercase mr-2">
+                                        {{ 'Qty' | trans }}
+                                    </x-paragraph>
+                                    {{# Decrease quantity #}}
+                                    <button @click.prevent="quantity = Math.max(1, quantity - 1)"
+                                        aria-label="Decrease quantity">
+                                        {{ svg src='minus-bold' class="w-6 h-6 fill-current text-primary-950 shrink-0" }}
+                                    </button>
+
+                                    <input type="hidden" name="product" value="{{ id }}">
+                                    <input type="number" name="quantity" id="quantity" x-model="quantity"
+                                        x-bind:max="10" readonly class="hidden">
+                                    <input type="text" name="product_name" value="{{ product:title ?? title }}"
+                                        class="hidden">
+                                    <input type="text" name="product_description"
+                                        value="{{ product:description ?? description }}" class="hidden">
+                                    <input type="text" name="product_image" value="{{ product:image ?? image }}"
+                                        class="hidden">
+                                    <input type="text" name="product_price" value="{{ product:price ?? price }}"
+                                        class="hidden">
+
+                                    <span x-text="quantity" class="w-10 text-lg text-center text-primary-950"></span>
+
+                                    {{# Increment quantity #}}
+                                    <button @click.prevent="quantity = Math.min(10, quantity + 1)"
+                                        aria-label="Increment quantity">
+                                        {{ svg src='plus-bold' class="w-6 h-6 fill-current text-primary-950 shrink-0" }}
+                                    </button>
+                                </div>
+                            {{ /if }}
+                        </div>
+
+                        <div class="mt-6">
+                            {{ if {sc:cart:alreadyExists :product="id"} }}
+                                <p class="text-primary-950">{{ 'This product is already in your cart.' | trans }}</p>
+                            {{ else }}
+                                <x-button type="submit" variant="outline" class="w-full">
+                                    {{ 'Add To Cart' | trans }}
+                                </x-button>
+                            {{ /if }}
+                        </div>
+                    {{ /sc:cart:addItem }}
+                    {{ if !{sc:cart:alreadyExists :product="id"} }}
+                        <div class="mt-4">
+                            {{ sc:cart:addItem redirect="/checkout" }}
+                                <input type="hidden" name="product" value="{{ id }}">
+                                <input type="number" name="quantity" id="quantity" x-model="quantity" x-bind:max="10"
+                                    readonly class="hidden">
+                                <input type="text" name="product_name" value="{{ product:title ?? title }}"
+                                    class="hidden">
+                                <input type="text" name="product_description"
+                                    value="{{ product:description ?? description }}" class="hidden">
+                                <input type="text" name="product_image" value="{{ product:image ?? image }}"
+                                    class="hidden">
+                                <input type="text" name="product_price" value="{{ product:price ?? price }}"
+                                    class="hidden">
+
+                                <x-button type="submit" :id="id" class="w-full">
+                                    {{ 'Buy it now' | trans }}
+                                </x-button>
+                            {{ /sc:cart:addItem }}
+                        </div>
+                    {{ /if }}
+                {{ /nocache }}
+            </div>
+
+            <div class="block lg:hidden">
+                {{ partial:partials/product_details/product_content }}
+            </div>
+        </div>
+    </div>
+
+    {{# Related Products #}}
+    <div class="py-12 md:py-20">
+        <x-heading size="h5" class="mb-8 lg:mb-12">{{ 'Related Products' | trans }}</x-heading>
+        <div id="related_product" x-ignore ax-load="visible" x-data="slider('related_product')" class="splide">
+            <div class="splide__track">
+                <div class="splide__list">
+                    {{ collection:products limit="4" :taxonomy:categories="categories" :url:not="url" }}
+                        <div class="max-w-xs splide__slide xl:max-w-full">
+                            {{ partial:partials/product_card }}
+                        </div>
+                    {{ /collection:products }}
+                </div>
+                <ul class="splide__pagination"></ul>
+            </div>
+        </div>
+    </div>
+</div>

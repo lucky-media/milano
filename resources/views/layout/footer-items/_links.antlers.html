@@ -1,0 +1,12 @@
+<ul
+    class="flex flex-col lg:flex-row items-start lg:items-center space-x-0 lg:space-x-4 space-y-4 lg:space-y-0 {{ first ?= 'justify-center lg:justify-start' }} {{ last && count > 1 ?= 'justify-center lg:justify-end' }} {{ !first && !last ?= 'justify-center lg:justify-center' }}">
+    {{ links }}
+        <li class="text-center">
+            <a href="{{ link }}" aria-label="{{ label }}">
+                <div class="{{ !last ?= 'lg:border-r' }} lg:border-neutral-900">
+                    <p class="text-primary-950 uppercase lg:mr-4">{{ label }}</p>
+                </div>
+            </a>
+        </li>
+    {{ /links }}
+</ul>

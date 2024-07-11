@@ -1,0 +1,3 @@
+id: default
+name: Default
+description: 'Will be used for all products where a category has not been assigned.'

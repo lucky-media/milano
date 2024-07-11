@@ -1,0 +1,12 @@
+<input 
+    id="{{ handle }}"
+    name="{{ handle }}"
+    type="number"
+    min="0"
+    class="{{ 'w-full rounded-full p-4 text-primary-900 border border-gray-400 placeholder:text-sm placeholder:text-primary-700 transition duration-300 ease-in-out ring-inset ring-primary-400 focus:ring-primary-700 focus:ring-1 focus:ring-inset' | tw_merge }} {{ error ?= 'border-red-500' }}"
+    {{ instructions_position == 'below' ?= 'aria-describedBy="{handle}-instructions"' }}
+    {{ character_limit ?= 'maxlength="{character_limit}"' }} 
+    {{ autocomplete ?= 'autocomplete="{autocomplete}"' }} 
+    {{ placeholder ?= 'placeholder="{placeholder}"' }}
+    {{ (validate | contains:required) ?= 'required' }} 
+    {{ old ?= 'value="{old}"' }} />
