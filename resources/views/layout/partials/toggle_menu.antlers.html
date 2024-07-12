@@ -1,0 +1,10 @@
+<button :aria-expanded="openMenu" aria-controls="nav-list" aria-label="toggle menu" @click="openMenu = !openMenu"
+    type="button" class="flex items-center justify-end px-2 text-indigo-900 focus:outline-none lg:hidden">
+    <svg class="w-7 h-7 fill-current text-primary-950" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path x-show.transition="!openMenu"
+            d="M3 7h18a1 1 0 100-2H3a1 1 0 000 2zm18 10H3a1 1 0 000 2h18a1 1 0 000-2zm0-4H3a1 1 0 000 2h18a1 1 0 000-2zm0-4H3a1 1 0 000 2h18a1 1 0 000-2z" />
+        <path x-show="openMenu" x-cloak
+            d="M.391.392a.625.625 0 0 1 .884 0L5 4.116 8.724.392a.625.625 0 1 1 .884.883L5.884 5l3.724 3.725a.625.625 0 1 1-.884.884L5 5.884 1.275 9.61a.625.625 0 1 1-.884-.884L4.116 5 .39 1.275a.625.625 0 0 1 0-.883Z"
+            transform="translate(6, 6)" />
+    </svg>
+</button>

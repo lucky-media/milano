@@ -1,0 +1,33 @@
+title: 'Featured Categories'
+fields:
+  -
+    handle: variant
+    field:
+      options:
+        featured_category_1: 'Variant 1'
+        featured_category_2: 'Variant 2'
+        featured_category_3: 'Variant 3'
+      default: featured_category_1
+      display: Variant
+      type: button_group
+      always_save: false
+  -
+    handle: title
+    field:
+      display: Title
+      type: text
+      always_save: false
+      if:
+        variant: 'contains_any featured_category_2,featured_category_3'
+  -
+    import: rich_text
+  -
+    handle: category
+    field:
+      max_items: 6
+      taxonomies:
+        - categories
+      type: terms
+      display: Category
+      validate:
+        - required

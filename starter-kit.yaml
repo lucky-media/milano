@@ -1,0 +1,34 @@
+export_paths:
+  - app/Livewire/Products.php
+  - app/Livewire/ProductSearch.php
+  - app/Tags/JsonRegions.php
+  - app/Tags/LuckySeo.php
+  - config/simple-commerce.php
+  - config/statamic/assets.php
+  - config/statamic/search.php
+  - content
+  - lang/en.json
+  - resources/sites.yaml
+  - resources/blueprints
+  - resources/fieldsets
+  - resources/forms
+  - resources/css
+  - resources/js
+  - resources/svg
+  - resources/views
+  - resources/preferences.yaml
+  - public/assets
+  - public/build
+  - public/fonts
+  - routes/web.php
+  - package.json
+  - tailwind.config.js
+  - vite.config.js
+  - postcss.config.js
+  - .env.example
+  - README.md
+dependencies:
+  duncanmcclean/simple-commerce: ^7.0
+  jonassiewertsen/statamic-livewire: ^3.3
+  marcorieser/tailwind-merge-statamic: ^1.1
+  stillat/antlers-components: ^2.2

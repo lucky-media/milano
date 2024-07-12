@@ -1,0 +1,177 @@
+title: Products
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            import: rich_text
+          -
+            handle: image
+            field:
+              container: assets
+              max_files: 1
+              display: 'Thumbnail Image'
+              type: assets
+              instructions: 'Displayed as thumbnail image across the website.'
+              validate:
+                - required
+          -
+            handle: product_images
+            field:
+              container: assets
+              display: Images
+              type: assets
+              instructions: 'Add multiple product images.'
+          -
+            import: content
+  specifications:
+    display: Specifications
+    sections:
+      -
+        fields:
+          -
+            handle: specifications
+            field:
+              add_row: 'New Item'
+              display: Specifications
+              type: grid
+              fields:
+                -
+                  handle: key_name
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Key Name'
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                    validate:
+                      - required
+                -
+                  handle: key_value
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Key Value'
+                    type: text
+                    icon: text
+                    instructions: 'If empty, add */*'
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                    validate:
+                      - required
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: product_type
+            field:
+              type: button_group
+              display: 'Product Type'
+              options:
+                physical: Physical
+                digital: Digital
+              default: physical
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: sku
+            field:
+              display: SKU
+              type: integer
+              instructions: 'Stock keeping unit'
+              always_save: false
+              validate:
+                - required
+          -
+            handle: product_status
+            field:
+              options:
+                stock: 'In Stock'
+                not-available: 'Not Available'
+              max_items: 1
+              searchable: false
+              default: stock
+              display: 'Product Status'
+              type: select
+          -
+            handle: categories
+            field:
+              type: terms
+              taxonomies:
+                - categories
+              display: Categories
+              mode: select
+          -
+            handle: colors
+            field:
+              type: terms
+              taxonomies:
+                - colors
+              display: Colors
+              mode: select
+          -
+            handle: tax_category
+            field:
+              type: tax_category
+              display: 'Tax Category'
+              max_items: 1
+              mode: select
+          -
+            handle: price
+            field:
+              type: money
+              display: Price
+              save_zero_value: true
+          -
+            handle: downloadable_asset
+            field:
+              type: assets
+              mode: grid
+              display: 'Downloadable Asset'
+              container: assets
+              if:
+                root.product_type: 'equals digital'
+          -
+            handle: download_limit
+            field:
+              type: integer
+              display: 'Download Limit'
+              instructions: "If you'd like to limit the amount if times this product can be downloaded, set it here. Keep it blank if you'd like it to be unlimited."
+              if:
+                root.product_type: 'equals digital'
+  seo:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            import: seo

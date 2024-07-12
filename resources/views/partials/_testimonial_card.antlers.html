@@ -1,0 +1,21 @@
+<div class="splide__slide flex flex-col justify-between p-6 bg-primary-100 space-y-6">
+    {{ svg src='quote' class="w-12 h-12 fill-current text-primary-500 shrink-0" }}
+    <x-paragraph class="max-w-xl text-center md:text-left">
+        {{ quote }}
+    </x-paragraph>
+    <div class="flex items-center space-x-4">
+        <div class="w-12 h-12">
+            {{ partial:components/picture cover="true" class="rounded-full" }}
+        </div>
+        <div>
+            <x-paragraph size="xl" class="uppercase mb-1">
+                {{ title }}
+            </x-paragraph>
+            {{ if position }}
+                <x-paragraph size="sm">
+                    {{ position }}
+                </x-paragraph>
+            {{ /if }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{{# Menu on Small Screens #}}
+<div x-show="openMenu" x-cloak @click.away="openMenu = false" class="container py-8 bg-white lg:hidden">
+    <ul id="nav-list">
+        {{ nav:navigation include_home="true" }}
+            <li>
+                <a href="{{ url }}" aria-label="{{ title }}" class="text-[40px] text-primary-950 uppercase"
+                    @click="isOpen = false">
+                    <div class="flex items-center justify-between w-full mb-9">
+                        {{ title }}
+                        <div class="p-2 border rounded-full border-primary-950">
+                            {{ svg src='top-right-arrow' class="w-6 h-6 fill-current text-primary-950 shrink-0" }}
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {{ /nav:navigation }}
+    </ul>
+    {{ if theme:cta_title or theme:cta_description }}
+        {{ partial:partials/cta showCopyright="true" }}
+    {{ /if }}
+</div>

@@ -1,0 +1,328 @@
+title: Theme
+data:
+  site_title: MILANO
+  logo: milano.svg
+  menu_builder:
+    -
+      id: 0iG8jLxB
+      main_navigation: navigation
+      type: menu
+      enabled: true
+      position: left
+  favicon: favicons/favicon.ico
+  favicon_256: favicons/android-chrome-512x512.png
+  favicon_192: favicons/android-chrome-192x192.png
+  favicon_180: favicons/apple-touch-icon.png
+  favicon_32: favicons/favicon-32x32.png
+  favicon_16: favicons/favicon-16x16.png
+  has_menu: true
+  custom_column: true
+  footer_column:
+    -
+      id: smujpzws
+      title: Company
+      structure: navigation
+      custom_items: true
+      item:
+        -
+          id: qEnvunKy
+          type: text
+          label: 'About Us'
+          link: /about-us
+        -
+          id: fTlUP8LX
+          type: text
+          label: Blog
+          link: '/#'
+        -
+          id: IPqEfhUG
+          type: text
+          label: Careers
+          link: '/#'
+        -
+          id: CypbwPBL
+          type: text
+          label: 'Contact Us'
+          link: /contact-us
+      type: column
+      enabled: true
+    -
+      id: o6Czs5Hv
+      title: Support
+      structure: navigation
+      custom_items: true
+      items:
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: 'Help Center'
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: 'Package Tracking'
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: 'Package Returns'
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: 'Customer Care'
+      type: column
+      enabled: true
+      item:
+        -
+          id: y2rFsLsH
+          label: 'Help Center'
+          link: '/#'
+          type: text
+        -
+          id: 36cHx5z2
+          label: 'Package Tracking'
+          link: '/#'
+          type: text
+        -
+          id: w4daNV29
+          label: 'Package Returns'
+          link: '/#'
+          type: text
+        -
+          id: W9eHHdz4
+          label: 'Customer Care'
+          link: '/#'
+          type: text
+    -
+      id: kWGNc3dw
+      title: 'Work with us'
+      structure: navigation
+      custom_items: true
+      items:
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: 'Help Center'
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: 'Brand Ambassador'
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: Marketing
+        -
+          has_icon: false
+          link: '#'
+          type: item
+          enabled: true
+          select: link
+          label: 'Product Care'
+      type: column
+      enabled: true
+      item:
+        -
+          id: TtdPlxjy
+          label: 'Help Center'
+          link: '/#'
+          type: text
+        -
+          id: dm7Y5D3k
+          label: 'Brand Ambassador'
+          link: '/#'
+          type: text
+        -
+          id: zmjiQ9NV
+          label: Marketing
+          link: '/#'
+          type: text
+        -
+          id: lLJimZcf
+          label: 'Product Care'
+          link: '/#'
+          type: text
+    -
+      id: K3svZqZV
+      title: 'Reach Us'
+      custom_items: true
+      items:
+        -
+          icon: envelope.svg
+          select: mail
+          label: hello@hello.com
+        -
+          icon: phone-1705407083.svg
+          select: phone
+          label: '+1 (555)-555-55 55'
+        -
+          icon: map-1705407089.svg
+          select: text
+          label: '772 Lyonwood Ave Walnut, CA 91789'
+      type: column
+      enabled: true
+      item:
+        -
+          id: rsBaxaHu
+          label: hello@milano.com
+          link: hello@milano.com
+          type: mail
+          icon: icons/envelope.svg
+        -
+          id: ZFFOCBdy
+          label: '+155 555 555'
+          link: '+155 555 555'
+          type: phone
+          icon: icons/phone.svg
+        -
+          id: DoyJsDmx
+          label: '772 Lyonwood Ave Walnut, CA 91789'
+          type: text
+          icon: icons/map.svg
+      structure: navigation
+  footer_items:
+    -
+      id: ocOiVJFB
+      text: 'All Rights Reserved | {{ now format="Y" }}. Powered by LM'
+      type: copyright
+      enabled: true
+    -
+      id: yoMBvTws
+      links:
+        -
+          id: VUpGCA8P
+          label: 'Privacy Policy'
+          link: 'entry::a84b19d4-7560-4c72-841b-e9b4c408e363'
+          type: links
+          enabled: true
+        -
+          id: oaXWLNpp
+          label: 'Return Policy'
+          link: 'entry::8844996c-12fb-411e-83e6-1fb523c06327'
+          type: links
+          enabled: true
+      type: links
+      enabled: true
+      align: center
+  cta_title: 'Get our emails for info on new items, sales and more.'
+  cta_description: 'Join our newsletter for 10% off!'
+  cta_email: 'Email Address*'
+  cta_subscribe_button: Subscribe
+  cta_disclaimer:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'By subscribing you agree to our '
+        -
+          type: text
+          marks:
+            -
+              type: link
+              attrs:
+                href: 'statamic://entry::a84b19d4-7560-4c72-841b-e9b4c408e363'
+                rel: null
+                target: null
+                title: null
+          text: 'Privacy Policy'
+        -
+          type: text
+          text: .
+  error_image: error-image.png
+  error_title: 'Looks like we are missing some page, or you typed something wrong in the URL....'
+  error_button_text: 'Get back home'
+  cart_title: 'Your cart is empty...'
+  cart_description:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Before you proceed to checkout, you must add some products to your shopping cart. You will find our products on our SHOP page.'
+  cart_button_text: 'Return to shop'
+  before_checkout_disclaimer_text:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'By continuing to checkout, you are agreeing to the '
+        -
+          type: text
+          marks:
+            -
+              type: link
+              attrs:
+                href: 'statamic://entry::a84b19d4-7560-4c72-841b-e9b4c408e363'
+                rel: 'noopener noreferrer'
+                target: _blank
+                title: null
+          text: 'Privacy Policy Terms'
+        -
+          type: text
+          text: .
+  checkout_disclaimer_text:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Powered by '
+        -
+          type: text
+          marks:
+            -
+              type: link
+              attrs:
+                href: 'https://stripe.com/'
+                rel: 'noopener noreferrer'
+                target: _blank
+                title: null
+          text: Stripe
+        -
+          type: text
+          text: ' | '
+        -
+          type: text
+          marks:
+            -
+              type: link
+              attrs:
+                href: 'statamic://entry::8844996c-12fb-411e-83e6-1fb523c06327'
+                rel: 'noopener noreferrer'
+                target: _blank
+                title: null
+          text: Terms
+        -
+          type: text
+          text: ' '
+        -
+          type: text
+          marks:
+            -
+              type: link
+              attrs:
+                href: 'statamic://entry::a84b19d4-7560-4c72-841b-e9b4c408e363'
+                rel: 'noopener noreferrer'
+                target: _blank
+                title: null
+          text: Privacy

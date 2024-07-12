@@ -1,0 +1,9 @@
+{
+    "name": "lucky-media/milano",
+    "extra": {
+        "statamic": {
+            "name": "Milano",
+            "description": "Milano starter kit"
+        }
+    }
+}

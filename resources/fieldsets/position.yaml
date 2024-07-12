@@ -1,0 +1,16 @@
+title: Position
+fields:
+  -
+    handle: position
+    field:
+      options:
+        left: Left
+        center: Center
+        right: Right
+      display: Position
+      type: button_group
+      icon: button_group
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      default: left

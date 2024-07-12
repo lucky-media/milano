@@ -1,0 +1,25 @@
+<div class="container pb-12 md:pb-20 pt-9 md:pt-16">
+    {{ if title or rich_text }}
+        <div class="flex flex-col items-center justify-center mb-9 md:mb-16 text-center">
+            {{ if title }}
+                <x-heading size="h3">{{ title }}</x-heading>
+            {{ /if }}
+            {{ if rich_text }}
+                {{ partial:sets/rich_text class="mt-4 md:mt-6 prose-p:text-lg" }}
+            {{ /if }}
+        </div>
+    {{ /if }}
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        {{ stats }}
+            <div class="bg-primary-100 space-y-3 py-11 px-3 text-center flex flex-col items-center">
+                <x-heading size="h3" class="mb-3">{{ number }}+</x-heading>
+                <x-paragraph weight="semibold">
+                    {{ title }}
+                </x-paragraph>
+                {{ if rich_text }}
+                    {{ partial:sets/rich_text class="max-w-sm" }}
+                {{ /if }}
+            </div>
+        {{ /stats }}
+    </div>
+</div>

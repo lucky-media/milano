@@ -1,0 +1,44 @@
+title: 'Team Section'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      validate:
+        - required
+  -
+    import: section_description
+  -
+    handle: team
+    field:
+      type: replicator
+      display: Team
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: image
+                  field:
+                    max_files: 1
+                    container: assets
+                    type: assets
+                    display: Image
+                    validate:
+                      - required
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    validate:
+                      - required
+                -
+                  handle: position
+                  field:
+                    type: text
+                    display: Position

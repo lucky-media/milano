@@ -1,0 +1,15 @@
+tree:
+  -
+    id: 7c470eae-0570-41a0-aa3b-e3e46ff681ae
+    entry: home
+  -
+    id: 3fdc1a8d-12ff-4590-8304-7bbfdd8e3079
+    entry: fb0a9e91-b312-4af1-9836-7dccba0953fc
+    title: Shop
+  -
+    id: 9947fb02-56af-49e4-96d5-cf35c0212976
+    title: Cart
+    url: /cart
+  -
+    id: 19a921e8-2428-42a0-a13d-1fcaf5466e1a
+    entry: 106c1652-c743-4748-a485-46a38e006a2f

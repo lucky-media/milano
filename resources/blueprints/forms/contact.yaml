@@ -1,0 +1,50 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: first_name
+            field:
+              display: 'First Name'
+              type: text
+              always_save: false
+              placeholder: 'Type your name'
+              validate:
+                - required
+              width: 50
+          -
+            handle: last_name
+            field:
+              placeholder: 'Type your last name'
+              type: text
+              display: 'Last Name'
+              width: 50
+              validate:
+                - required
+          -
+            handle: email
+            field:
+              placeholder: 'Type your email address'
+              display: Email
+              type: text
+              always_save: false
+              validate:
+                - required
+              width: 50
+              input_type: email
+          -
+            handle: company_name
+            field:
+              placeholder: 'Type your company name'
+              type: text
+              display: 'Company Name'
+              width: 50
+          -
+            handle: message
+            field:
+              placeholder: 'Your message here'
+              display: Message
+              type: textarea
+              always_save: false

@@ -1,0 +1,94 @@
+{
+  "public/fonts/GeneralSans-Bold.ttf": {
+    "file": "assets/GeneralSans-Bold-DM1NF1hz.ttf",
+    "src": "public/fonts/GeneralSans-Bold.ttf"
+  },
+  "public/fonts/GeneralSans-Bold.woff": {
+    "file": "assets/GeneralSans-Bold-Bd_PtqWW.woff",
+    "src": "public/fonts/GeneralSans-Bold.woff"
+  },
+  "public/fonts/GeneralSans-Bold.woff2": {
+    "file": "assets/GeneralSans-Bold-Ctx684HN.woff2",
+    "src": "public/fonts/GeneralSans-Bold.woff2"
+  },
+  "public/fonts/GeneralSans-Extralight.ttf": {
+    "file": "assets/GeneralSans-Extralight--toNElvl.ttf",
+    "src": "public/fonts/GeneralSans-Extralight.ttf"
+  },
+  "public/fonts/GeneralSans-Extralight.woff": {
+    "file": "assets/GeneralSans-Extralight-NwzqzUvZ.woff",
+    "src": "public/fonts/GeneralSans-Extralight.woff"
+  },
+  "public/fonts/GeneralSans-Extralight.woff2": {
+    "file": "assets/GeneralSans-Extralight-CeoahQd2.woff2",
+    "src": "public/fonts/GeneralSans-Extralight.woff2"
+  },
+  "public/fonts/GeneralSans-Light.ttf": {
+    "file": "assets/GeneralSans-Light-DcTqM57O.ttf",
+    "src": "public/fonts/GeneralSans-Light.ttf"
+  },
+  "public/fonts/GeneralSans-Light.woff": {
+    "file": "assets/GeneralSans-Light-DzM6pIPN.woff",
+    "src": "public/fonts/GeneralSans-Light.woff"
+  },
+  "public/fonts/GeneralSans-Light.woff2": {
+    "file": "assets/GeneralSans-Light-ulp9itO8.woff2",
+    "src": "public/fonts/GeneralSans-Light.woff2"
+  },
+  "public/fonts/GeneralSans-Medium.ttf": {
+    "file": "assets/GeneralSans-Medium-BakGtJF2.ttf",
+    "src": "public/fonts/GeneralSans-Medium.ttf"
+  },
+  "public/fonts/GeneralSans-Medium.woff": {
+    "file": "assets/GeneralSans-Medium-sA7I9gJL.woff",
+    "src": "public/fonts/GeneralSans-Medium.woff"
+  },
+  "public/fonts/GeneralSans-Medium.woff2": {
+    "file": "assets/GeneralSans-Medium-DvEF04Ne.woff2",
+    "src": "public/fonts/GeneralSans-Medium.woff2"
+  },
+  "public/fonts/GeneralSans-Regular.ttf": {
+    "file": "assets/GeneralSans-Regular-BTmkhiIl.ttf",
+    "src": "public/fonts/GeneralSans-Regular.ttf"
+  },
+  "public/fonts/GeneralSans-Regular.woff": {
+    "file": "assets/GeneralSans-Regular-Dk2lLWJL.woff",
+    "src": "public/fonts/GeneralSans-Regular.woff"
+  },
+  "public/fonts/GeneralSans-Regular.woff2": {
+    "file": "assets/GeneralSans-Regular-BeAhF2WT.woff2",
+    "src": "public/fonts/GeneralSans-Regular.woff2"
+  },
+  "public/fonts/GeneralSans-Semibold.ttf": {
+    "file": "assets/GeneralSans-Semibold-Ckm6wkEi.ttf",
+    "src": "public/fonts/GeneralSans-Semibold.ttf"
+  },
+  "public/fonts/GeneralSans-Semibold.woff": {
+    "file": "assets/GeneralSans-Semibold-oVEy_BBm.woff",
+    "src": "public/fonts/GeneralSans-Semibold.woff"
+  },
+  "public/fonts/GeneralSans-Semibold.woff2": {
+    "file": "assets/GeneralSans-Semibold-DFLbTJgb.woff2",
+    "src": "public/fonts/GeneralSans-Semibold.woff2"
+  },
+  "resources/css/tailwind.css": {
+    "file": "assets/tailwind--2ClGk8n.css",
+    "src": "resources/css/tailwind.css",
+    "isEntry": true
+  },
+  "resources/js/core/Slider.js": {
+    "file": "assets/Slider-CquI1Umn.js",
+    "name": "Slider",
+    "src": "resources/js/core/Slider.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/site.js": {
+    "file": "assets/site-BXGpRSuW.js",
+    "name": "site",
+    "src": "resources/js/site.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/core/Slider.js"
+    ]
+  }
+}
