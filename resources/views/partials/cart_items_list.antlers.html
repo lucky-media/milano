@@ -23,12 +23,12 @@
                             </x-paragraph>
                         </label>
                         <button @click="quantity > 1 ? quantity-- : null" aria-label="Decrease quantity">
-                            {{ svg src='minus-bold' class="w-6 h-6 fill-current shrink-0 text-primary-950 hover:cursor-pointer" }}
+                            {{ svg src="minus-bold" class="w-6 h-6 fill-current shrink-0 text-primary-950 hover:cursor-pointer" }}
                         </button>
                         <input type="text" x-model="quantity" id="quantity" name="quantity" class="hidden" />
                         <span x-text="quantity" class="text-lg text-primary-950"></span>
                         <button @click="quantity < 10 ? quantity++ : null" aria-label="Increment quantity">
-                            {{ svg src='plus-bold' class="w-6 h-6 fill-current shrink-0 text-primary-950 hover:cursor-pointer" }}
+                            {{ svg src="plus-bold" class="w-6 h-6 fill-current shrink-0 text-primary-950 hover:cursor-pointer" }}
                         </button>
                     </div>
                 {{ /sc:cart:updateItem }}
