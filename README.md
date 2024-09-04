@@ -92,7 +92,7 @@ Use Vite with [Laravel](https://laravel.com/docs/11.x/vite) for asset compilatio
 
 ## Commercial Starter Kit
 
-Milano is a commercial starter kit - a license must be purchased via the [Statamic Marketplace](https://statamic.com/starter-kits/lucky-media/milano) to use it in your project.
+Milano is a commercial starter kit - a license must be purchased via the [Statamic Marketplace](https://statamic.com/starter-kits/luckymedia/milano) to use it in your project.
 
 ## 🐞 Bugs and 💡 Feature Requests
 
