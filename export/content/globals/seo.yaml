@@ -1,0 +1,11 @@
+title: SEO
+data:
+  sitename: MILANO
+  append_on_title: MILANO
+  meta_description: 'Milano is a complete solution for building dynamic and visually appealing e-commerce websites with Statamic.'
+  display_og_tags: true
+  og_description: 'Milano is a complete solution for building dynamic and visually appealing e-commerce websites with Statamic.'
+  og_image: og_image.jpeg
+  display_twitter_tags: true
+  sitemap_change_frequency: weekly
+  sitemap_priority: 0.5

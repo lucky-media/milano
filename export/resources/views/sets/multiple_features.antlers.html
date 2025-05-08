@@ -1,0 +1,15 @@
+<div class="container py-12">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ multiple_features }}
+            <div class="w-full p-4 md:p-6">
+                <div class="border p-4 rounded-full w-max md:mb-10 mb-5">
+                    {{ partial:components/picture :image="icon" class="w-8 h-8 fill-current shrink-0 text-primary-950" }}
+                </div>
+                <x-heading size="h6" class="mb-2">{{ title }}</x-heading>
+                {{ if rich_text }}
+                    {{ partial:sets/rich_text }}
+                {{ /if }}
+            </div>
+        {{ /multiple_features }}
+    </div>
+</div>

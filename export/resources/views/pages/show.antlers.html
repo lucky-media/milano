@@ -1,0 +1,10 @@
+{{ if !hide_page_header }}
+    {{ partial src="sets/page_header" }}
+{{ /if }}
+{{ blocks }}
+    {{ if variant }}
+        {{ partial src="sets/{type}/{variant}" }}
+    {{ else }}
+        {{ partial src="sets/{type}" }}
+    {{ /if }}
+{{ /blocks }}

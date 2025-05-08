@@ -1,0 +1,20 @@
+title: 'Rich Text'
+fields:
+  -
+    handle: rich_text
+    field:
+      buttons:
+        - bold
+        - italic
+        - removeformat
+        - anchor
+      toolbar_mode: floating
+      remove_empty_nodes: false
+      type: bard
+      display: 'Rich Text'
+      link_noopener: true
+      link_noreferrer: true
+      target_blank: true
+      link_collections:
+        - pages
+      container: assets

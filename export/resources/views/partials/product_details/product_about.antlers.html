@@ -1,0 +1,52 @@
+<x-heading size="h4" as="h1">{{ title }}</x-heading>
+{{ partial:sets/rich_text }}
+<ul class="flex flex-col gap-y-2">
+    <li class="flex flex-wrap">
+        <x-paragraph class="mr-2 uppercase">
+            {{ 'Sku:' | trans }}
+        </x-paragraph>
+        <x-paragraph weight="medium">
+            {{ sku }}
+        </x-paragraph>
+    </li>
+    {{ if categories }}
+        <li class="flex flex-wrap">
+            <x-paragraph class="mr-2 uppercase">
+                {{ 'Categories' | trans }}:
+            </x-paragraph>
+            {{ categories }}
+                <form action="/products">
+                    <input type="hidden" name="categories[]" value="{{ id }}">
+                    <button type="submit"
+                        class="text-primary-950 font-medium hover:text-primary-700 transition ease-in-out duration-150 mr-1">
+                        {{ title + {!last ?= ','} }}
+                    </button>
+                </form>
+            {{ /categories }}
+        </li>
+    {{ /if }}
+    {{ if colors }}
+        <li class="flex flex-wrap">
+            <x-paragraph class="mr-2 uppercase">
+                {{ 'Colors:' | trans }}
+            </x-paragraph>
+            {{ colors }}
+                <form action="/products">
+                    <input type="hidden" name="colors[]" value="{{ id }}">
+                    <button type="submit"
+                        class="text-primary-950 font-medium hover:text-primary-700 transition ease-in-out duration-150 mr-1">
+                        {{ title + {!last ?= ','} }}
+                    </button>
+                </form>
+            {{ /colors }}
+        </li>
+    {{ /if }}
+    
+    {{# Product Status #}}
+    <div class="inline-flex items-center pt-8">
+        {{ svg src="{product_status == 'stock' ? 'check' : 'x'}" class="w-5 h-5 fill-current shrink-0 {product_status == 'stock' ? 'text-[#45C363]' : 'text-[#FF0000]'}" }}
+        <p class="ml-1 uppercase text-primary-950">
+            {{ product_status:label }}
+        </p>
+    </div>
+</ul>

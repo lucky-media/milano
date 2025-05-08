@@ -22,13 +22,11 @@ export_paths:
   - public/fonts
   - routes/web.php
   - package.json
-  - tailwind.config.js
   - vite.config.js
-  - postcss.config.js
   - .env.example
   - README.md
 dependencies:
   duncanmcclean/simple-commerce: ^7.0
-  jonassiewertsen/statamic-livewire: ^3.3
+  marcorieser/statamic-livewire: ^4.4
   marcorieser/tailwind-merge-statamic: ^1.1
   stillat/antlers-components: ^2.2

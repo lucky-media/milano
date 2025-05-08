@@ -1,0 +1,38 @@
+title: Form
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: text
+      display: Description
+  -
+    handle: form
+    field:
+      max_items: 1
+      type: form
+      display: Form
+      validate:
+        - required
+  -
+    handle: form_disclaimer
+    field:
+      buttons:
+        - bold
+        - italic
+        - removeformat
+        - anchor
+      toolbar_mode: floating
+      remove_empty_nodes: false
+      type: bard
+      display: 'Form Disclaimer'
+      link_noopener: true
+      link_noreferrer: true
+      target_blank: true
+      link_collections:
+        - pages
+      container: assets

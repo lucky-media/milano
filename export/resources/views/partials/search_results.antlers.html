@@ -1,0 +1,10 @@
+<a :href="item.url" aria-label="{{ title }}" @click="clear()" class="pt-6">
+    <div class="w-full h-96">
+        <img :src="item.image" :alt="item.title" class="object-cover w-full h-full" />
+    </div>
+    <div class="p-4">
+        <p class="text-xl uppercase text-primary-950" x-text="item.title"></p>
+        <p x-text="item.price" class="text-[32px] text-primary-950 mt-1">
+        </p>
+    </div>
+</a>

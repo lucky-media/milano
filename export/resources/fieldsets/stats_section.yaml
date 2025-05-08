@@ -1,0 +1,41 @@
+title: 'Stats Section'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    import: rich_text
+  -
+    handle: stats
+    field:
+      max_sets: 3
+      type: replicator
+      display: Statistics
+      validate:
+        - required
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            card:
+              display: Card
+              fields:
+                -
+                  handle: number
+                  field:
+                    input_type: number
+                    type: text
+                    display: Number
+                    validate:
+                      - required
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    validate:
+                      - required
+                -
+                  import: rich_text

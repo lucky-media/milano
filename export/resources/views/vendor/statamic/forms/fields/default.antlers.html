@@ -1,0 +1,6 @@
+<input type="text" 
+    name="{{ handle }}"
+    {{ placeholder ?= 'placeholder="{placeholder}"' }}
+    {{ (validate | contains:required) ?= 'required' }}
+    {{ character_limit ?= 'maxlength="{character_limit}"' }}
+    {{ old ?= 'value="{old}"' }}>

@@ -1,0 +1,31 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.29.3",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "cross-env": "^7.0.3",
+        "laravel-vite-plugin": "^1.2.0",
+        "tailwindcss": "^4.1.4",
+        "@tailwindcss/forms": "^0.5.10",
+        "@tailwindcss/typography": "^0.5.16",
+        "tailwindcss-debug-screens": "^3.0.1",
+        "vite": "^6.3.4"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.0.4",
+        "@alpinejs/collapse": "^3.13.5",
+        "@alpinejs/focus": "^3.13.5",
+        "@splidejs/splide": "^3.6.12",
+        "@victoryoalli/alpinejs-screen": "^1.0.0",
+        "alpinejs": "^3.13.5",
+        "async-alpine": "^1.2.1"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "^4.18.0"
+    }
+}

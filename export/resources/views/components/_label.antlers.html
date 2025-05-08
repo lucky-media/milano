@@ -1,0 +1,6 @@
+<label for="{{ id ?? handle }}" class="uppercase font-normal text-black">
+    {{ label }}
+    {{ if validate | contains:required or required }}
+        <span class="text-red-500">*</span>
+    {{ /if }}
+</label>

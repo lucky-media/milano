@@ -1,0 +1,18 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: email
+        field:
+          input_type: email
+          antlers: false
+          display: Email
+          type: text
+          icon: text
+          instructions: 'By subscribing you agree to our Terms & Conditions and Privacy & Cookies Policy.'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          placeholder: 'Email address *'

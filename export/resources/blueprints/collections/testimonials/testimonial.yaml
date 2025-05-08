@@ -1,0 +1,51 @@
+title: Testimonial
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              width: 50
+          -
+            handle: position
+            field:
+              display: Position
+              type: text
+              always_save: false
+              width: 50
+          -
+            handle: image
+            field:
+              container: assets
+              max_files: 1
+              display: Image
+              type: assets
+              always_save: false
+              validate:
+                - required
+          -
+            handle: quote
+            field:
+              display: Quote
+              type: textarea
+              always_save: false
+              validate:
+                - required
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

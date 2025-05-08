@@ -1,0 +1,21 @@
+<div class="relative isolate overflow-hidden z-0">
+    <div class="absolute inset-0 -z-10">
+        {{ partial:components/picture cover="true" }}
+    </div>
+
+    <div class="container py-16 md:py-28 flex flex-col justify-end h-screen max-md:gap-y-[72px]">
+        <div class="flex flex-col-reverse md:flex-col">
+            {{ if has_button }}
+                <div class="w-max mt-6 md:mt-0 md:mb-6">
+                    <x-button :url="link" icon="true" variant="outline-white">{{ button_title }}</x-button>
+                </div>
+            {{ /if }}
+            <div class="flex flex-col md:flex-row justify-between">
+                <x-heading size="h3" color="white" class="max-w-lg leading-tight">{{ title }}</x-heading>
+                <div class="max-w-md">
+                    {{ partial:components/section_description :rich_text="description" class="prose-p:first:mt-4 prose-p:text-white uppercase" }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
