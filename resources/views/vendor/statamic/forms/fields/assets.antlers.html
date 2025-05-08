@@ -1,5 +1,0 @@
-{{ if max_files === 1 }}
-    <input type="file" name="{{ handle }}" {{ (validate | contains:required) ?= 'required' }}>
-{{ else }}
-    <input type="file" name="{{ handle }}[]" multiple {{ (validate | contains:required) ?= 'required' }}>
-{{ /if }}

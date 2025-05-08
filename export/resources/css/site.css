@@ -1,8 +1,10 @@
 @import "tailwindcss";
-@source "../views";
+@import "./plugins.css";
 @import "../css/splide.css" layer(utilities);
 @import "../css/general-sans.css" layer(utilities);
-@import "./plugins.css";
+@source "../views";
+@source "../../content";
+
 
 @theme {
     --font-sans: GeneralSans-Variable, ui-sans-serif, system-ui, sans-serif,
@@ -46,6 +48,7 @@
 }
 
 @layer base {
+
     *,
     ::after,
     ::before,

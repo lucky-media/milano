@@ -1,8 +1,0 @@
-<x-select name="{{ handle }}{{ multiple ?= '[]' }}" {{ multiple ?= 'multiple="true"' }}>
-    {{ foreach:options as="value|label" }}
-        <option value="{{ value }}" 
-            {{ option === value ?= 'selected' }}>
-            {{ label }}
-        </option>
-    {{ /foreach:options }}
-</x-select>

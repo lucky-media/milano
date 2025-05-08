@@ -1,8 +1,0 @@
-title: Orders
-template: orders/show
-layout: layout
-revisions: false
-title_format:
-  default: '#{order_number}'
-route: '/orders/{slug}'
-sort_dir: asc
