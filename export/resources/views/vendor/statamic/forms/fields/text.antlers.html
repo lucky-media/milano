@@ -1,0 +1,10 @@
+<input type="{{ input_type ?? 'text' }}"
+    id="{{ handle }}" 
+    name="{{ handle }}"
+    class="{{ 'w-full rounded-full p-4 text-primary-900 border border-gray-400 placeholder:text-sm placeholder:text-primary-700 transition duration-300 ease-in-out focus:ring focus:ring-inset focus:ring-secondary-300 focus:outline-none' | tw_merge }} {{ error ?= 'border-red-500' }}"
+    {{ instructions_position == 'below' ?= 'aria-describedBy="{handle}-instructions"' }}
+    {{ autocomplete ?= 'autocomplete="{autocomplete}"' }} 
+    {{ placeholder ?= 'placeholder="{placeholder}"' }}
+    {{ character_limit ?= 'maxlength="{character_limit}"' }} 
+    {{ old ?= 'value="{old}"' }}
+    {{ (validate | contains:required) ?= 'required' }} />

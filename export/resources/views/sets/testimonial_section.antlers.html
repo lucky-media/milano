@@ -1,0 +1,47 @@
+<div class="container py-12 md:py-20">
+    <x-heading size="h3" class="mx-auto mb-4 text-center md:mb-6 md:mx-0 md:text-left">{{ title }}</x-heading>
+    {{ partial:components/section_description :rich_text="description" class="max-w-xl text-center md:text-left prose-p:text-lg" }}
+    {{ if testimonial | count > 3 }}
+        <div id="testimonial" x-ignore ax-load="visible" x-data="slider('testimonial', {
+        perPage: 3,
+        arrows: true,
+        pagination: false,
+        gap: '32px',
+        breakpoints: {
+            768: {
+                arrows: false,
+                pagination: true,
+                perPage: 1,
+            },
+            1280: {
+                perPage: 2,
+            },
+        },
+    })" class="splide">
+            <div class="items-center justify-end hidden -mt-10 md:gap-x-4 splide__arrows md:flex">
+                <button class="p-2 border rounded-full splide__arrow splide__arrow--prev border-primary-950">
+                    {{ svg src="chevron-left" class="w-6 h-6 fill-current text-primary-950 shrink-0" }}
+                </button>
+                <button class="p-2 border rounded-full splide__arrow splide__arrow--next border-primary-950">
+                    {{ svg src="chevron-right" class="w-6 h-6 fill-current text-primary-950 shrink-0" }}
+                </button>
+            </div>
+            <div class="splide__track mt-9 md:mt-16">
+                <div class="text-left splide__list">
+                    {{ testimonial }}
+                        {{ partial:partials/testimonial_card }}
+                    {{ /testimonial }}
+                </div>
+                <ul class="splide__pagintion"></ul>
+            </div>
+        </div>
+    {{ else }}
+        <div class="mt-9 md:mt-16">
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 text-left">
+                {{ testimonial }}
+                    {{ partial:partials/testimonial_card }}
+                {{ /testimonial }}
+            </div>
+        </div>
+    {{ /if }}
+</div>

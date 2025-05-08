@@ -1,0 +1,73 @@
+{{ theme:footer_column }}
+    {{ if type === 'column' }}
+        <div class="{{ index > 2 ?= 'col-span-2 lg:col-span-1' }}">
+            {{# Custom pages/options by user #}}
+            {{ if custom_items }}
+                {{ if title }}
+                    <x-heading size='h6' class="tracking-[-0.72px]">{{ title }}</x-heading>
+                {{ /if }}
+                {{ if item }}
+                    <ul class="pt-6 flex flex-col gap-y-3">
+                        {{ item }}
+                            {{ if type == 'mail' || type == 'phone' || type == 'text' }}
+                                <li class="{{ icon ?= 'flex items-center gap-x-3 text-lg' }}">
+                                    {{ if link }}
+                                        <a href="{{ type == 'mail' ?= 'mailto:' }}{{ type == 'phone' ?= 'tel:' }}{{ link }}"
+                                            aria-label="{{ label }}"
+                                            {{ if type == 'mail' || type == 'phone' }}
+                                                target="_self"
+                                            {{ /if }}
+                                            class="flex items-center gap-x-3 text-lg">
+                                    {{ /if }}
+                                    {{ svg :src="icon" class='w-6 h-6 shrink-0 fill-current text-primary-950' }}
+                                    <x-paragraph size="lg" :weight="{{ icon ?= 'medium' }}"
+                                        :class="{{ icon ?= 'uppercase' }}">
+                                        {{ label }}
+                                    </x-paragraph>
+                                    {{ if link }}
+                                        </a>
+                                    {{ /if }}
+                                </li>
+                            {{ else }}
+                                {{ if link }}
+                                    <a href="{{ link }}" aria-label="{{ label }}">
+                                {{ /if }}
+                                <x-paragraph size="lg" :weight="{{ icon ?= 'medium' }}"
+                                    :class="{{ icon ?= 'uppercase' }}">
+                                    {{ label }}
+                                </x-paragraph>
+                                {{ if link }}
+                                    </a>
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /item }}
+                    </ul>
+                {{ /if }}
+            {{ else }}
+                {{ if title }}
+                    <x-heading size="h5" color="white" class="capitalize">{{ title }}</x-heading>
+                {{ /if }}
+                <ul class="pt-6 flex flex-col gap-y-3">
+                    {{ nav :handle="structure" }}
+                        <li>
+                            <a href="{{ url }}" aria-label="{{ title }}"
+                                class="{{ is_current ?= 'font-bold' }} font-medium text-primary-950 hover:font-bold duration-200 ease-in-out">
+                                {{ title }}
+                            </a>
+                        </li>
+                    {{ /nav }}
+                </ul>
+            {{ /if }}
+        </div>
+    {{ /if }}
+{{ /theme:footer_column }}
+
+{{# Main Column #}}
+{{ theme:footer_column }}
+    {{ if type === 'image' }}
+        {{ partial src="footer-items/image" }}
+    {{ /if }}
+    {{ if type === 'copyright' }}
+        {{ partial src="footer-items/copyright" }}
+    {{ /if }}
+{{ /theme:footer_column }}

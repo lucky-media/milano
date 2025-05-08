@@ -1,0 +1,10 @@
+<textarea name="{{ handle }}"
+    class="{{ 'w-full transition duration-200 rounded-2xl ease-in-out py-[17px] px-4 border border-primary-400 text-primary-900 placeholder:text-primary-700 placeholder:text-sm focus:ring focus:ring-inset focus:ring-secondary-300 focus:outline-none' | tw_merge }} {{ error ?= 'border-red-500' }}"
+    rows="5"
+    {{ instructions_position == 'below' ?= 'aria-describedBy="{handle}-instructions"' }}
+    {{ placeholder ?= 'placeholder="{placeholder}"' }}
+    {{ (validate | contains:required) ?= 'required' }}
+    {{ character_limit ?= 'maxlength="{character_limit}"' }}
+    {{ autocomplete ?= 'autocomplete="{autocomplete}"' }}>
+    {{ old }}
+</textarea>

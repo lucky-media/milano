@@ -1,0 +1,71 @@
+<div class="container pb-12 md:pb-20">
+    <div class="max-w-4xl mx-auto">
+        {{ form:contact }}
+            <div class="py-10 bg-neutral-100 md:px-12">
+                <div class="container">
+                    {{ if title or description }}
+                        <div class="mb-8 flex flex-col gap-y-3 md:mb-10">
+                            {{ if title }}
+                                <x-heading size="h4" class="max-w-xl mx-auto mb-3">{{ title }}</x-heading>
+                            {{ /if }}
+                            {{ if description }}
+                                <x-paragraph>
+                                    {{ description }}
+                                </x-paragraph>
+                            {{ /if }}
+                        </div>
+                    {{ /if }}
+                    {{ if success }}
+                        <div class="bg-green-900 text-white p-4 mb-6 rounded-lg">
+                            {{ success }}
+                        </div>
+                    {{ /if }}
+                    {{ if errors }}
+                        <div class="bg-red-900 text-white p-4 mb-6 rounded-lg">
+                            {{ errors }}
+                                {{ value }}<br>
+                            {{ /errors }}
+                        </div>
+                    {{ /if }}
+                    <div class="grid gap-4 md:grid-cols-12">
+                        {{ fields }}
+                            <div class="p-2 flex flex-col gap-y-4
+                            {{ width == '25' ?= 'md:col-span-3' }}
+                            {{ width == '33' ?= 'md:col-span-4' }}
+                            {{ width == '50' ?= 'md:col-span-6' }}
+                            {{ width == '66' ?= 'md:col-span-8' }}
+                            {{ width == '75' ?= 'md:col-span-9' }}
+                            {{ width == '100' ?= 'md:col-span-12' }}">
+                                {{ partial:components/label label="{display}" }}
+                                {{ if instructions && instructions_position === 'above' }}
+                                    <p class="text-sm text-gray-500">
+                                        {{ instructions }}
+                                    </p>
+                                {{ /if }}
+                                <div>
+                                    {{ field }}
+                                </div>
+                                {{ if instructions && instructions_position === 'below' }}
+                                    <p class="text-sm text-gray-500">
+                                        {{ instructions }}
+                                    </p>
+                                {{ /if }}
+                            </div>
+                        {{ /fields }}
+                    </div>
+
+                    <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
+
+                    <div class="my-6">
+                        <x-button type="submit" size="md">
+                            {{ 'Submit' | trans }}
+                        </x-button>
+                    </div>
+                    {{ if form_disclaimer }}
+                        {{ partial:sets/rich_text :rich_text="form_disclaimer" }}
+                    {{ /if }}
+                </div>
+            </div>
+        {{ /form:contact }}
+    </div>
+</div>
